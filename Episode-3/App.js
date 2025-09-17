@@ -1,173 +1,139 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-// create heading element using React.createElement
-// React.createElement => ReactElement (JS Object) => HTMLElement (render) => DOM (Browser)
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 /*
-const heading = React.createElement("h1", { id: "heading" }, "Namasate React 🚀");
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
-*/ 
-
-// create heading element using JSX
-// JSX => React.createElement => ReactElement(Object) => HTMLElement(render) => DOM(Browser)
-/*
-const jsxHeading = <h1 id="heading">Namasate React using JSX 🚀</h1>;
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(jsxHeading);
+    1. Header
+        - Logo
+        - Nav Items
+    2. Body
+        - Search
+        - Restaurant Card
+    3. Footer
+        - Copyright
+        - Links
+        - Address
+        - Contact
 */
 
-
-/**
- * React Component
- * Functional component - new way of writing component
- * Class component - old way of writing component
- * React component is a function or class that returns a React Element (JS Object)
- */
-
-// React Functional Component
-const elem = "React Element";
-// const Title = () => {
-//   return <h1 className="head" id="heading"><h1>{elem}</h1> Namaste React using JSX 🚀</h1>
-// };
-
-const Title = () => (
-  <h1 className="head" id="heading">
-    <h1 style={{color: "red"}}>{elem}</h1>
-    Namaste React using JSX 🚀
-  </h1>
-);
-
-// React Fragment: Behaves like an empty tag
-// Component Composition - multiple components can be composed together to create a new component (Component Composition)
-const HeadingComponent = () => (
-  <>
-    <div id="container">
-      {/* {Title()} */}
-      {/* <Title></Title> */}
-      <Title />
-      <h1 className="heaidng">Namaste React Fucntional Component</h1>
+//1. Header Component
+const Header = () => {
+    return <div className="header">
+        <div>
+            <img className="logo" src="https://img.freepik.com/premium-vector/restaurant-logo-design-template_79169-56.jpg?w=2000"/>
+        </div>
+        <div className="nav-items">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>Cart</li>
+            </ul>
+        </div>
     </div>
- 
-    <div id="container-2"></div>
-  </>
-);
+}//Header
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(Title());
-// root.render(<Title />);
-root.render(<HeadingComponent />);
-// root.render(HeadingComponent());
-
-
-
-/**
- * React.createElement: Function (createElement) => ReactElement (JS Object) => HTMLElement (render) => DOM (Browser)
- *
- * React.createElement(type, props, children)
- * type: HTML tag name or React Component
- * props: Object, null or empty
- * children: String, React Element, Array of React Elements
- *
- * React Element: Object
- * React Element is a plain JavaScript object that represents a DOM element or a component.
- *
- * ReactDOM.createRoot(containerElement)
- * containerElement: HTMLElement
- *
- * ReactDOM.createRoot(containerElement) => root
- * root.render(ReactElement)
- *
- * React Element => Object => HTMLElement(render)
- */
-/*
-const heading = React.createElement("h1", {id: "heading"}, "Namasate React 🚀");
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
-*/
-
-
-/**
- * JSX: JavaScript XML
- * JSX => React.createElement => ReactElement(JS Object) => HTMLElement(render) => DOM(Browser)
- *
- * JSX is a syntactic sugar for React.createElement
- * JSX is not a valid JavaScript, it needs to be transpiled using Bable to React.createElement before it can be rendered in the browser using ReactDOM
- * JSX (transpiled before it can be rendered in the browser using ReactDOM) => Parcel (Bundler) => Babel (Transpiler) => React.createElement => ReactDOM
- * JSX is optional, you can write React without JSX
- * JSX is more readable and easy to write
- * JSX is more like HTML
- * JSX is look like HTML or XML like syntax, but it's not HTML or XML. It's a syntax extension of JavaScript.
- * JSX is mixed of JavaScript and HTML like syntax that allows us to write HTML like code in React. 
- * JSX prevents cross-site injection attacks by escaping any values embedded in JSX before rendering them. 
- * 
- * Babel is a transpiler that converts JSX into React.createElement calls before it can be rendered in the browser using ReactDOM
- * Babel: JavaScript compiler that takes your modern JavaScript code (ES6) and returns code that most browsers can understand.
- */
-/*
-const jsxHeading = <h1 id="heading">Namasate React using JSX 🚀</h1>;
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(jsxHeading);
-*/
-
-
-/**
- * React Component
- * Functional component - new way of writing component
- * Class component - old way of writing component
- * React component is a function or class that returns a React Element (JS Object)
- * React component is a reusable piece of UI
- * React component is a building block of React application
- * React component is a pure JavaScript function or class
- * React component is a function that accepts props and returns a React Element
- * React component is a function that accepts props and returns JSX
- * React component is a function that accepts props and returns React.createElement
- */
-/*
-const Title = () => (
-  <h1 className="head" id="heading">
-    Namaste React using Functional Component 🚀
-  </h1>
-);
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(Title());
-root.render(<Title />);
-*/
+const resList = [
+    {
+        id: "1001",
+        name : "Santosh Family Dhaba",
+        receipe: "Tomato Soup",
+        rating: "4.0",
+        price : "₹300 for two",
+        deliveryTime: "22 MINS",
+        image: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/mkcibe6x1ychvzjkywxk",
+    },
+    {
+        id: "1002",
+        name : "Cafe Niloufer",
+        receipe: "Maska Bun",
+        rating: "4.5",
+        price : "₹400 for two",
+        deliveryTime: "32 MINS",
+        image: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/dc9t0kiq7lhsd3pndohf",
+    },
+    {
+        id: "1003",
+        name : "Santosh Family Dhaba",
+        receipe: "Crispy Corn",
+        rating: "4.5",
+        price : "₹560 for two",
+        deliveryTime: "32 MINS",
+        image: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/dwqb8nhiop8fvqya0alq",
+    },
+    {
+        id: "1004",
+        name : "Grameen Kulfi",
+        receipe: "Sitaphal Stick Kulfi",
+        rating: "4.6",
+        price : "₹120 for two",
+        deliveryTime: "18 MINS",
+        image: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/vu0thsifji9wgfuzfmic",
+    },
+    {
+        id: "1005",
+        name : "Nrs Nandini",
+        receipe: "Idli",
+        rating: "4.4",
+        price : "₹150 for two",
+        deliveryTime: "21 MINS",
+        image: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/9fa5ca30c3db622c69cec0326ff63b41",
+    },
+    {
+        id: "1006",
+        name : "Utsav Vegetarian",
+        receipe: "Kaju Paneer Biryani",
+        rating: "4.1",
+        price : "₹300 for two",
+        deliveryTime: "32 MINS",
+        image: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/y2lkcxxax3794vepe2se",
+    },
+    {
+        id: "1007",
+        name : "Subbayya Gari Hotel",
+        receipe: "Butta Bojanam",
+        rating: "4.0",
+        price : "₹300 for two",
+        deliveryTime: "24 MINS",
+        image: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/iwtocxqjtu57vc7l52h9",
+    },
+]
 
 
-/**
- * React Fragment: Behaves like an empty tag
- * React Fragment is a component that allows you to group multiple children without adding extra nodes to the DOM
- * React Fragment is a component that allows you to return multiple children without adding extra nodes to the DOM
- * 
- * Syntax:
- * <React.Fragment>...</React.Fragment>
- * or
- * <>...</>
- */
-/*
-const elem = "React Element";
-
-const Title = () => (
-  <h1 className="head" id="heading">
-    <h1 style={{color: "red"}}>{elem}</h1>
-    Namaste React using JSX 🚀
-  </h1>
-);
-
-// React Fragment: Behaves like an empty tag
-// Component Composition - multiple components can be composed together to create a new component (Component Composition)
-const HeadingComponent = () => (
-  <>
-    <div id="container">
-      <Title />
-      <h1 className="heaidng">Namaste React Fucntional Component</h1>
+//2. Body Component
+const Body = () => {
+    return <div className="body">
+        <div className="res-search">
+            Search
+        </div>
+        <div className="res-container">
+            {
+                resList.map((restaurant) => (
+                    <RestaurantCard key={restaurant.id} resData={restaurant}/>
+                ))
+            }
+        </div>
     </div>
+}
 
-    <div id="container-2"></div>
-  </>
-);
-*/
+//3. Restaurant Card
+const RestaurantCard = (props) => {
+    const {resData} = props;
+
+    return (<div className="res-card">
+        <img className="res-logo" src={resData.image}/>
+        <h3>{resData.name}</h3>
+        <h4>{resData.receipe}</h4>
+        <h4>{resData.rating}</h4>
+        <h4>{resData.deliveryTime}</h4>
+        <h4>{resData.price}</h4>
+    </div>);
+}
+
+const AppLayout = () => {
+    return <div className="app">
+        <Header/>
+        <Body/>
+    </div>
+}
+const root = createRoot(document.getElementById("root"));
+
+root.render(<AppLayout/>);
